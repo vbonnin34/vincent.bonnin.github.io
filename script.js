@@ -1,19 +1,31 @@
-// Accordéon : déplie/replie le détail de chaque projet au clic sur l'image.
+// Accordéon : déplie le détail d'un projet au survol de l'image, le replie quand la souris quitte le projet.
 (function () {
-  const toggles = document.querySelectorAll(".project-image-toggle");
-  toggles.forEach((btn) => {
+  const canHover = window.matchMedia("(hover: hover)").matches;
+
+  document.querySelectorAll(".project-image-toggle").forEach((btn) => {
     const row = btn.closest(".project-row");
     const details = row.querySelector(".project-details");
     details.style.maxHeight = "0px";
-    btn.addEventListener("click", () => {
-      const isOpen = btn.getAttribute("aria-expanded") === "true";
-      if (isOpen) {
-        details.style.maxHeight = "0px";
-      } else {
-        details.style.maxHeight = details.scrollHeight + "px";
-      }
-      btn.setAttribute("aria-expanded", String(!isOpen));
-    });
+
+    function open() {
+      details.style.maxHeight = details.scrollHeight + "px";
+      btn.setAttribute("aria-expanded", "true");
+    }
+    function close() {
+      details.style.maxHeight = "0px";
+      btn.setAttribute("aria-expanded", "false");
+    }
+
+    if (canHover) {
+      // Souris : survol de l'image = ouverture, la souris quitte le projet = fermeture.
+      btn.addEventListener("mouseenter", open);
+      row.addEventListener("mouseleave", close);
+    } else {
+      // Écran tactile (pas de survol possible) : on garde le clic.
+      btn.addEventListener("click", () => {
+        btn.getAttribute("aria-expanded") === "true" ? close() : open();
+      });
+    }
   });
 })();
 
