@@ -177,37 +177,35 @@
     
     <div class="projects-list">
 
-      <!-- Project 1 -->
-      <article class="project-row">
+      <!-- Project 1 - IN PROGRESS -->
+      <article class="project-row" id="current-project">
         <div class="project-header">
           <span class="mono project-num">01</span>
-          <h3>Mechanical prosthetic hand for a finger amputee</h3>
+          <h3>Glove-controlled robotic hand <span class="status-badge mono">IN PROGRESS</span></h3>
         </div>
-        <div class="tags"><span>CAD</span><span>3D scanning</span><span>Mechanism design</span></div>
+        <div class="tags"><span>Flex sensors</span><span>IMU</span><span>Hand tracking</span><span>Teleoperation</span></div>
 
         <button class="project-image-toggle" aria-expanded="false">
-          <img src="projects/prosthetic-hand-main.jpg" alt="Mechanical prosthetic hand" class="project-main-img">
+          <img src="projects/glove-main.jpg" alt="Sensor glove controlling a robotic hand" class="project-main-img">
         </button>
 
         <div class="project-details">
           <div class="project-details-inner">
             <p>
-              Designed a fully mechanical prosthetic hand for a patient who had lost all
-              fingers in an accident, with no electronic components. Reconstructed a 3D
-              scan of the patient's residual hand (STL format) and built a custom-fitted
-              device around it — reworking complex organic surfaces and boolean operations
-              in CAD to match the patient's anatomy.
+              Personal project to build a sensor glove that captures hand movements and
+              reproduces them in a virtual 3D environment, then uses that data to remotely
+              control a robotic hand in real time. The glove combines flex sensors to
+              measure finger bending with an IMU to track hand orientation.
             </p>
             <p>
-              The core challenge was enabling one-motion closure: elastic cords anchored at
-              the fingertips are routed across the palm to the wrist, so that flexing the
-              wrist inward tensions the cords and closes all fingers simultaneously.
+              Currently in the design phase: defining the requirements and selecting the
+              components (sensors, microcontroller, actuators) before moving on to
+              prototyping.
             </p>
             <ul>
-              <li>Fully functional prototype achieving the target one-motion grip</li>
-              <li>Identified a ratchet-lock mechanism as the next improvement, to hold the
-                  hand closed for carrying heavier objects</li>
-              <li>Duration: 6 weeks</li>
+              <li>Status: design phase, component selection</li>
+              <li>Next: sensor integration and 3D hand model</li>
+              <li>Goal: real-time teleoperation of a robotic hand through the glove</li>
             </ul>
           </div>
         </div>
@@ -217,6 +215,106 @@
       <article class="project-row">
         <div class="project-header">
           <span class="mono project-num">02</span>
+          <h3>Autonomous obstacle avoidance — simulation to real robot</h3>
+        </div>
+        <div class="tags"><span>ROS2</span><span>LiDAR</span><span>Inverse kinematics</span></div>
+
+        <button class="project-image-toggle" aria-expanded="false">
+          <img src="projects/ros2-avoidance-main.jpg" alt="ROS2 obstacle avoidance robot" class="project-main-img">
+        </button>
+
+        <div class="project-details">
+          <div class="project-details-inner">
+            <p>
+              Modeled my school's differential-drive, LiDAR-equipped robot in a ROS2
+              workspace and programmed autonomous obstacle avoidance to explore a randomly
+              cluttered map. Then deployed the same avoidance logic onto the physical robot
+              running ROS2, moving directly from simulation to hardware.
+            </p>
+            <p>
+              Alongside this, modeled a 4-DOF robotic arm in Onshape, imported it into the
+              same workspace, and implemented inverse kinematics to command the end
+              effector's position in space directly from a terminal.
+            </p>
+            <ul>
+              <li>Autonomous obstacle avoidance validated in both simulation and on real hardware</li>
+              <li>Inverse kinematics control of a self-designed 4-DOF arm</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-row">
+        <div class="project-header">
+          <span class="mono project-num">03</span>
+          <h3>Class Globe 5.80 racing boat — user-centered design</h3>
+        </div>
+        <div class="tags"><span>Onshape</span><span>Design research</span><span>User personas</span></div>
+
+        <button class="project-image-toggle" aria-expanded="false">
+          <img src="projects/globe-boat-main.jpg" alt="Class Globe 5.80 boat CAD model" class="project-main-img">
+        </button>
+
+        <div class="project-details">
+          <div class="project-details-inner">
+            <p>
+              Led a full design-research process for a Class Globe 5.80 racing boat as part
+              of a design course: studied user populations, built personas, created trend
+              boards, and ran preference surveys before modeling the complete boat and its
+              interchangeable tools in CAD on Onshape.
+            </p>
+            <p>
+              Designed the boat as a multi-use platform, with swappable tool modules letting
+              the same hull serve three distinct profiles: racers, beginners, and casual
+              sailors.
+            </p>
+            <ul>
+              <li>Full CAD model of the boat and its modular, interchangeable equipment</li>
+              <li>Design driven end-to-end by user research rather than a fixed spec</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-row">
+        <div class="project-header">
+          <span class="mono project-num">04</span>
+          <h3>High-precision vibration generator for MMG sensor calibration</h3>
+        </div>
+        <div class="tags"><span>Arduino</span><span>PID control</span><span>Mechatronics</span></div>
+
+        <button class="project-image-toggle" aria-expanded="false">
+          <img src="projects/vibration-generator-main.jpg" alt="Vibration generator prototype" class="project-main-img">
+        </button>
+
+        <div class="project-details">
+          <div class="project-details-inner">
+            <p>
+              Developed, during my internship at Inria Montpellier (CAMIN team), a complete
+              mechatronic system generating tightly controlled vibration frequencies to
+              calibrate 6-axis MMG (mechanomyogram) biomechanical sensors.
+            </p>
+            <p>
+              The system drives a DC motor through a cam-follower mechanism to vibrate a
+              rod, closed-loop by an LM393 laser sensor to correct drift in real time and
+              guarantee reproducible frequencies. Sized the cam profile and spring to
+              produce a clean sinusoidal oscillation without overloading the motor torque,
+              and tuned the PID control constants using the Ziegler–Nichols method.
+            </p>
+            <ul>
+              <li>Achieved stable, reproducible vibration frequencies for sensor calibration</li>
+              <li>Full mechanical design, prototyping, and closed-loop control implementation</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="project-row">
+        <div class="project-header">
+          <span class="mono project-num">05</span>
           <h3>Pediatric tracheostomy training mannequin</h3>
         </div>
         <div class="tags"><span>3D Slicer</span><span>Medical imaging</span><span>CATIA</span><span>Onshape</span></div>
@@ -249,135 +347,37 @@
         </div>
       </article>
 
-      <!-- Project 3 -->
+      <!-- Project 6 -->
       <article class="project-row">
-        <div class="project-header">
-          <span class="mono project-num">03</span>
-          <h3>High-precision vibration generator for MMG sensor calibration</h3>
-        </div>
-        <div class="tags"><span>Arduino</span><span>PID control</span><span>Mechatronics</span></div>
-
-        <button class="project-image-toggle" aria-expanded="false">
-          <img src="projects/vibration-generator-main.jpg" alt="Vibration generator prototype" class="project-main-img">
-        </button>
-
-        <div class="project-details">
-          <div class="project-details-inner">
-            <p>
-              Developed, during my internship at Inria Montpellier (CAMIN team), a complete
-              mechatronic system generating tightly controlled vibration frequencies to
-              calibrate 6-axis MMG (mechanomyogram) biomechanical sensors.
-            </p>
-            <p>
-              The system drives a DC motor through a cam-follower mechanism to vibrate a
-              rod, closed-loop by an LM393 laser sensor to correct drift in real time and
-              guarantee reproducible frequencies. Sized the cam profile and spring to
-              produce a clean sinusoidal oscillation without overloading the motor torque,
-              and tuned the PID control constants using the Ziegler–Nichols method.
-            </p>
-            <ul>
-              <li>Achieved stable, reproducible vibration frequencies for sensor calibration</li>
-              <li>Full mechanical design, prototyping, and closed-loop control implementation</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 4 -->
-      <article class="project-row">
-        <div class="project-header">
-          <span class="mono project-num">04</span>
-          <h3>Class Globe 5.80 racing boat — user-centered design</h3>
-        </div>
-        <div class="tags"><span>Onshape</span><span>Design research</span><span>User personas</span></div>
-
-        <button class="project-image-toggle" aria-expanded="false">
-          <img src="projects/globe-boat-main.jpg" alt="Class Globe 5.80 boat CAD model" class="project-main-img">
-        </button>
-
-        <div class="project-details">
-          <div class="project-details-inner">
-            <p>
-              Led a full design-research process for a Class Globe 5.80 racing boat as part
-              of a design course: studied user populations, built personas, created trend
-              boards, and ran preference surveys before modeling the complete boat and its
-              interchangeable tools in CAD on Onshape.
-            </p>
-            <p>
-              Designed the boat as a multi-use platform, with swappable tool modules letting
-              the same hull serve three distinct profiles: racers, beginners, and casual
-              sailors.
-            </p>
-            <ul>
-              <li>Full CAD model of the boat and its modular, interchangeable equipment</li>
-              <li>Design driven end-to-end by user research rather than a fixed spec</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 5 -->
-      <article class="project-row">
-        <div class="project-header">
-          <span class="mono project-num">05</span>
-          <h3>Autonomous obstacle avoidance — simulation to real robot</h3>
-        </div>
-        <div class="tags"><span>ROS2</span><span>LiDAR</span><span>Inverse kinematics</span></div>
-
-        <button class="project-image-toggle" aria-expanded="false">
-          <img src="projects/ros2-avoidance-main.jpg" alt="ROS2 obstacle avoidance robot" class="project-main-img">
-        </button>
-
-        <div class="project-details">
-          <div class="project-details-inner">
-            <p>
-              Modeled my school's differential-drive, LiDAR-equipped robot in a ROS2
-              workspace and programmed autonomous obstacle avoidance to explore a randomly
-              cluttered map. Then deployed the same avoidance logic onto the physical robot
-              running ROS2, moving directly from simulation to hardware.
-            </p>
-            <p>
-              Alongside this, modeled a 4-DOF robotic arm in Onshape, imported it into the
-              same workspace, and implemented inverse kinematics to command the end
-              effector's position in space directly from a terminal.
-            </p>
-            <ul>
-              <li>Autonomous obstacle avoidance validated in both simulation and on real hardware</li>
-              <li>Inverse kinematics control of a self-designed 4-DOF arm</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 6 - IN PROGRESS -->
-      <article class="project-row" id="current-project">
         <div class="project-header">
           <span class="mono project-num">06</span>
-          <h3>Glove-controlled robotic hand <span class="status-badge mono">IN PROGRESS</span></h3>
+          <h3>Mechanical prosthetic hand for a finger amputee</h3>
         </div>
-        <div class="tags"><span>Flex sensors</span><span>IMU</span><span>Hand tracking</span><span>Teleoperation</span></div>
+        <div class="tags"><span>CAD</span><span>3D scanning</span><span>Mechanism design</span></div>
 
         <button class="project-image-toggle" aria-expanded="false">
-          <img src="projects/glove-main.jpg" alt="Sensor glove controlling a robotic hand" class="project-main-img">
+          <img src="projects/prosthetic-hand-main.jpg" alt="Mechanical prosthetic hand" class="project-main-img">
         </button>
 
         <div class="project-details">
           <div class="project-details-inner">
             <p>
-              Personal project to build a sensor glove that captures hand movements and
-              reproduces them in a virtual 3D environment, then uses that data to remotely
-              control a robotic hand in real time. The glove combines flex sensors to
-              measure finger bending with an IMU to track hand orientation.
+              Designed a fully mechanical prosthetic hand for a patient who had lost all
+              fingers in an accident, with no electronic components. Reconstructed a 3D
+              scan of the patient's residual hand (STL format) and built a custom-fitted
+              device around it — reworking complex organic surfaces and boolean operations
+              in CAD to match the patient's anatomy.
             </p>
             <p>
-              Currently in the design phase: defining the requirements and selecting the
-              components (sensors, microcontroller, actuators) before moving on to
-              prototyping.
+              The core challenge was enabling one-motion closure: elastic cords anchored at
+              the fingertips are routed across the palm to the wrist, so that flexing the
+              wrist inward tensions the cords and closes all fingers simultaneously.
             </p>
             <ul>
-              <li>Status: design phase, component selection</li>
-              <li>Next: sensor integration and 3D hand model</li>
-              <li>Goal: real-time teleoperation of a robotic hand through the glove</li>
+              <li>Fully functional prototype achieving the target one-motion grip</li>
+              <li>Identified a ratchet-lock mechanism as the next improvement, to hold the
+                  hand closed for carrying heavier objects</li>
+              <li>Duration: 6 weeks</li>
             </ul>
           </div>
         </div>
@@ -385,6 +385,8 @@
 
     </div>
   </section>
+
+  
     <!-- SKILLS -->
   <section id="skills" class="section">
     <div class="section-head">
